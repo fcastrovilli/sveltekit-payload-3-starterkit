@@ -3,7 +3,7 @@ services:
     image: postgres:16.3-alpine3.20
     container_name: db
     ports:
-      - 5432:5432
+      - ${DB_PORT:-5432}:5432
     volumes:
       - ./db_data:/var/lib/postgresql/data
     environment:
