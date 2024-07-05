@@ -30,7 +30,7 @@ services:
       autoRemove: true
     environment:
       - PAYLOAD_SECRET=${PAYLOAD_SECRET}
-      - DATABASE_URI=postgressql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - DATABASE_URI=postgressql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${DB_PORT:-5432}/${POSTGRES_DB}
     depends_on:
       db:
         condition: service_healthy
@@ -40,7 +40,7 @@ services:
     container_name: cms
     environment:
       - PAYLOAD_SECRET=${PAYLOAD_SECRET}
-      - DATABASE_URI=postgressql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - DATABASE_URI=postgressql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${DB_PORT:-5432}/${POSTGRES_DB}
     ports:
       - ${CMS_PORT:-5000}:3000
     depends_on:
@@ -57,7 +57,7 @@ services:
       - NODE_ENV=production
       - ORIGIN=${ORIGIN}
       - PAYLOAD_SECRET=${PAYLOAD_SECRET}
-      - DATABASE_URI=postgressql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - DATABASE_URI=postgressql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${DB_PORT:-5432}/${POSTGRES_DB}
     ports:
       - ${WEB_PORT:-5001}:3000
     depends_on:
