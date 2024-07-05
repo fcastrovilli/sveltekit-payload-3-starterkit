@@ -2,8 +2,8 @@ services:
   db:
     image: postgres:16.3-alpine3.20
     container_name: db
-    ports:
-      - ${DB_PORT:-5432}:5432
+    # ports:
+    #   - ${DB_PORT:-5432}:5432
     volumes:
       - ./db_data:/var/lib/postgresql/data
     environment:
@@ -25,7 +25,7 @@ services:
       dockerfile: Dockerfile.migrator
     container_name: migrator
     command: ["pnpm", "payload", "migrate"]
-    restart: on-failure:2
+    restart: no
     labels:
       autoRemove: true
     environment:
@@ -41,8 +41,8 @@ services:
     environment:
       - PAYLOAD_SECRET=${PAYLOAD_SECRET}
       - DATABASE_URI=postgressql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${DB_PORT:-5432}/${POSTGRES_DB}
-    ports:
-      - ${CMS_PORT:-5000}:3000
+    # ports:
+    #   - ${CMS_PORT:-5000}:3000
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -58,8 +58,8 @@ services:
       - ORIGIN=${ORIGIN}
       - PAYLOAD_SECRET=${PAYLOAD_SECRET}
       - DATABASE_URI=postgressql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${DB_PORT:-5432}/${POSTGRES_DB}
-    ports:
-      - ${WEB_PORT:-5001}:3000
+    # ports:
+    #   - ${WEB_PORT:-5001}:3000
     depends_on:
       migrator:
         condition: service_completed_successfully
