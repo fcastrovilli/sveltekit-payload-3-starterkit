@@ -19,6 +19,22 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  migrator:
+    build:
+      context: ./apps/cms
+      dockerfile: Dockerfile.migrator
+    container_name: migrator
+    command: ["pnpm", "payload", "migrate"]
+    restart: no
+    labels:
+      autoRemove: true
+    environment:
+      - PAYLOAD_SECRET=${PAYLOAD_SECRET}
+      - DATABASE_URI=postgressql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
   cms:
     build: ./apps/cms
     container_name: cms
@@ -28,6 +44,8 @@ services:
     ports:
       - ${CMS_PORT:-5000}:3000
     depends_on:
+      migrator:
+        condition: service_completed_successfully
       db:
         condition: service_healthy
         restart: true
@@ -43,6 +61,8 @@ services:
     ports:
       - ${WEB_PORT:-5001}:3000
     depends_on:
+      migrator:
+        condition: service_completed_successfully
       db:
         condition: service_healthy
         restart: true

@@ -2,6 +2,13 @@ node_modules
 db_data
 scripts
 
+Dockerfile
+Dockerfile.*
+docker-compose.yml
+docker-compose.*.yml
+
+.vscode
+
 # Output
 out
 dist

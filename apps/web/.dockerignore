@@ -1,6 +1,9 @@
 node_modules
 db_data
 
+Dockerfile
+Dockerfile.*
+
 # Output
 .output
 .vercel
