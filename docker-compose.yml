@@ -3,15 +3,13 @@ include:
 
 services:
   cms:
-    build:
-      context: ./apps/cms
+    build: ./apps/cms
     container_name: cms
     environment:
       - PAYLOAD_SECRET=${PAYLOAD_SECRET}
       - DATABASE_URI=postgressql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     ports:
       - ${CMS_PORT:-5000}:3000
-    # command: ["node", "apps/cms/server.js"]
     depends_on:
       db:
         condition: service_healthy
@@ -27,7 +25,6 @@ services:
       - DATABASE_URI=postgressql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     ports:
       - ${WEB_PORT:-5001}:3000
-    # command: ["node", "build"]
     depends_on:
       db:
         condition: service_healthy
