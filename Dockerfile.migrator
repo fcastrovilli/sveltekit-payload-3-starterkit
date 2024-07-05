@@ -8,19 +8,15 @@ RUN corepack enable
 RUN apk update
 RUN apk add --no-cache libc6-compat
 
-# Don't run production as root
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-USER nextjs
-
-COPY --chown=nextjs:nodejs ./apps/migrator/package.json ./package.json
-COPY --chown=nextjs:nodejs ./apps/cms/next.config.mjs ./next.config.mjs
-COPY --chown=nextjs:nodejs ./apps/cms/tsconfig.json ./tsconfig.json
-COPY --chown=nextjs:nodejs ./apps/cms/src/config ./src/config
-COPY --chown=nextjs:nodejs ./apps/cms/src/migrations ./src/migrations
+COPY ./apps/cms/package.json ./package.json
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --no-optional
-# RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install typescript
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install typescript
+
+# COPY ./apps/cms/next.config.mjs ./next.config.mjs
+COPY ./apps/cms/tsconfig.json ./tsconfig.json
+COPY ./apps/cms/src/config ./src/config
+COPY ./apps/cms/src/migrations ./src/migrations
 
 
 
