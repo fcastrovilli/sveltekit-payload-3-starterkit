@@ -1,0 +1,22 @@
+{
+  "name": "turbo-starterkit",
+  "private": true,
+  "scripts": {
+    "db": "docker compose -f docker-compose.db.yml up -d",
+    "db:down": "docker compose -f docker-compose.db.yml down",
+    "prod": "pnpm run sync-config && docker compose up --build",
+    "build": "pnpm run sync-config && turbo build",
+    "dev": "pnpm run sync-config && turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "sync-config": "node scripts/watcher.js"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.2.0",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@9.1.1",
+  "engines": {
+    "node": ">=20"
+  }
+}

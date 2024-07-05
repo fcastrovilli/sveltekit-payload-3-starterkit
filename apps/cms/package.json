@@ -1,0 +1,45 @@
+{
+  "name": "cms",
+  "version": "1.0.0",
+  "description": "A blank template to get started with Payload 3.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "generate:types": "payload generate:types",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+  },
+  "dependencies": {
+    "payload": "beta",
+    "@payloadcms/next": "beta",
+    "@payloadcms/plugin-cloud": "beta",
+    "@payloadcms/richtext-lexical": "beta",
+    "@payloadcms/db-postgres": "beta",
+    "cross-env": "^7.0.3",
+    "graphql": "^16.9.0",
+    "next": "15.0.0-rc.0",
+    "react": "^19.0.0-rc-100dfd7dab-20240701",
+    "react-dom": "^19.0.0-rc-100dfd7dab-20240701",
+    "sharp": "0.33.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "@types/react": "npm:types-react@19.0.0-beta.2",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-beta.2",
+    "dotenv": "^16.4.5",
+    "eslint": "^9",
+    "eslint-config-next": "15.0.0-rc.0",
+    "typescript": "5.5.3"
+  },
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0"
+  },
+  "overrides": {
+    "@types/react": "npm:types-react@19.0.0-beta.2",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-beta.2"
+  }
+}
