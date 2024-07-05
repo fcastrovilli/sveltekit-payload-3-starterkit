@@ -38,6 +38,7 @@
 	},
 	"dependencies": {
 		"@payloadcms/db-postgres": "beta",
+		"bits-ui": "^0.21.11",
 		"clsx": "^2.1.1",
 		"payload": "beta",
 		"tailwind-merge": "^2.3.0",

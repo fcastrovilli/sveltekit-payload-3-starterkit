@@ -78,6 +78,9 @@ importers:
       '@payloadcms/db-postgres':
         specifier: beta
         version: 3.0.0-beta.58(@types/react@18.3.3)(payload@3.0.0-beta.58(@swc/core@1.6.7(@swc/helpers@0.5.11))(@swc/types@0.1.9)(graphql@16.9.0)(typescript@5.5.3))(react@18.2.0)
+      bits-ui:
+        specifier: ^0.21.11
+        version: 0.21.11(svelte@5.0.0-next.175)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -1104,6 +1107,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@internationalized/date@3.5.4':
+    resolution: {integrity: sha512-qoVJVro+O0rBaw+8HPjUB1iH8Ihf8oziEnqMnvhJUSuVIrHOuZ6eNLHNvzXJKUvAtaDiqMnRlg8Z2mgh09BlUw==}
+
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
     engines: {node: '>=12'}
@@ -1252,6 +1258,11 @@ packages:
     resolution: {integrity: sha512-ay1X9AobE4BpzG0XPw1gplyLZPGHIgJOovvW23gUrukRegiUP62uzhpRbKNogLlUOynyXeq//prHgPXiebUfWg==}
     cpu: [x64]
     os: [win32]
+
+  '@melt-ui/svelte@0.76.2':
+    resolution: {integrity: sha512-7SbOa11tXUS95T3fReL+dwDs5FyJtCEqrqG3inRziDws346SYLsxOQ6HmX+4BkIsQh1R8U3XNa+EMmdMt38lMA==}
+    peerDependencies:
+      svelte: '>=3 <5'
 
   '@monaco-editor/loader@1.4.0':
     resolution: {integrity: sha512-00ioBig0x642hytVspPl7DbQyaSWRaolYie/UFNjoTdvoKPzo6xrXLhTk9ixgIKcLH5b5vDOjVNiGyY+uDCUlg==}
@@ -2199,6 +2210,11 @@ packages:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
 
+  bits-ui@0.21.11:
+    resolution: {integrity: sha512-pFS/9z1qLaPZwb+9Tm0YS4iBp+ClsJBARMZWFOjv0lGCYpzAN7lx4eNk3SbSB5QMBUKwoVjr9Rai71ROq3RD1Q==}
+    peerDependencies:
+      svelte: ^4.0.0 || ^5.0.0-next.118
+
   body-scroll-lock@3.1.5:
     resolution: {integrity: sha512-Yi1Xaml0EvNA0OYWxXiYNqY24AfWkbA6w5vxE7GWxtKfzIbZM+Qw+aSmkgsbWzbHiy/RCSkUZBplVxTA+E4jJg==}
 
@@ -2992,6 +3008,9 @@ packages:
   focus-trap@6.9.4:
     resolution: {integrity: sha512-v2NTsZe2FF59Y+sDykKY+XjqZ0cPfhq/hikWVL88BqLivnNiEffAsac6rP6H45ff9wG9LL5ToiDqrLEP9GX9mw==}
 
+  focus-trap@7.5.4:
+    resolution: {integrity: sha512-N7kHdlgsO/v+iD/dMoJKtsSqs5Dz/dXZVebRgJw23LDk+jMi/974zyiOYDziY2JPp8xivq9BmUGwIJMiuSBi7w==}
+
   follow-redirects@1.15.6:
     resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
     engines: {node: '>=4.0'}
@@ -3702,6 +3721,11 @@ packages:
   nanoid@3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
+  nanoid@5.0.7:
+    resolution: {integrity: sha512-oLxFY2gd2IqnjcYyOXD8XGCftpGtZP2AbHbOkthDkvRywH5ayNtPVy9YlOPcHckXzbLTCHpkb7FB+yuxKV13pQ==}
+    engines: {node: ^18 || >=20}
     hasBin: true
 
   natural-compare@1.4.0:
@@ -6215,6 +6239,10 @@ snapshots:
   '@img/sharp-win32-x64@0.33.4':
     optional: true
 
+  '@internationalized/date@3.5.4':
+    dependencies:
+      '@swc/helpers': 0.5.11
+
   '@isaacs/cliui@8.0.2':
     dependencies:
       string-width: 5.1.2
@@ -6453,6 +6481,16 @@ snapshots:
 
   '@libsql/win32-x64-msvc@0.3.19':
     optional: true
+
+  '@melt-ui/svelte@0.76.2(svelte@5.0.0-next.175)':
+    dependencies:
+      '@floating-ui/core': 1.6.4
+      '@floating-ui/dom': 1.6.7
+      '@internationalized/date': 3.5.4
+      dequal: 2.0.3
+      focus-trap: 7.5.4
+      nanoid: 5.0.7
+      svelte: 5.0.0-next.175
 
   '@monaco-editor/loader@1.4.0(monaco-editor@0.38.0)':
     dependencies:
@@ -7671,6 +7709,13 @@ snapshots:
 
   binary-extensions@2.3.0: {}
 
+  bits-ui@0.21.11(svelte@5.0.0-next.175):
+    dependencies:
+      '@internationalized/date': 3.5.4
+      '@melt-ui/svelte': 0.76.2(svelte@5.0.0-next.175)
+      nanoid: 5.0.7
+      svelte: 5.0.0-next.175
+
   body-scroll-lock@3.1.5: {}
 
   body-scroll-lock@4.0.0-beta.0: {}
@@ -8664,6 +8709,10 @@ snapshots:
     dependencies:
       tabbable: 5.3.3
 
+  focus-trap@7.5.4:
+    dependencies:
+      tabbable: 6.2.0
+
   follow-redirects@1.15.6: {}
 
   for-each@0.3.3:
@@ -9362,6 +9411,8 @@ snapshots:
       thenify-all: 1.6.0
 
   nanoid@3.3.7: {}
+
+  nanoid@5.0.7: {}
 
   natural-compare@1.4.0: {}
 
