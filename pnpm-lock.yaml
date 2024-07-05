@@ -73,6 +73,21 @@ importers:
         specifier: 5.5.3
         version: 5.5.3
 
+  apps/migrator:
+    dependencies:
+      '@payloadcms/db-postgres':
+        specifier: beta
+        version: 3.0.0-beta.58(@types/react@18.3.3)(payload@3.0.0-beta.58(@swc/core@1.6.7(@swc/helpers@0.5.11))(@swc/types@0.1.9)(graphql@16.9.0)(typescript@5.5.3))(react@18.2.0)
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
+      payload:
+        specifier: beta
+        version: 3.0.0-beta.58(@swc/core@1.6.7(@swc/helpers@0.5.11))(@swc/types@0.1.9)(graphql@16.9.0)(typescript@5.5.3)
+      typescript:
+        specifier: 5.5.3
+        version: 5.5.3
+
   apps/web:
     dependencies:
       '@payloadcms/db-postgres':
@@ -10158,7 +10173,7 @@ snapshots:
 
   types-react-dom@19.0.0-beta.2:
     dependencies:
-      '@types/react': types-react@19.0.0-beta.2
+      '@types/react': 18.3.3
 
   types-react@19.0.0-beta.2:
     dependencies:
