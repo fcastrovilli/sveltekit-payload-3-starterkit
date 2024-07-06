@@ -13,7 +13,7 @@ export const load: PageServerLoad = async () => {
 };
 
 export const actions: Actions = {
-	default: async ({ request }) => {
+	create: async ({ request }) => {
 		if (!payload) return;
 		const form = await request.formData();
 		const email: string = form.get('email') as string;
@@ -22,8 +22,24 @@ export const actions: Actions = {
 				collection: 'users',
 				data: {
 					email: email,
-					password: 'password'
+					password: crypto.randomUUID()
 				}
+			});
+			return {
+				user
+			};
+		} catch (error) {
+			console.log(error);
+		}
+	},
+	delete: async ({ request }) => {
+		if (!payload) return;
+		const form = await request.formData();
+		const id: string = form.get('id') as string;
+		try {
+			const user = await payload.delete({
+				collection: 'users',
+				id: id
 			});
 			return {
 				user
