@@ -47,7 +47,7 @@
 						}}
 						class="flex flex-row gap-2 py-2"
 					>
-						<Input type="email" name="email" placeholder="Email" class="max-w-xs" />
+						<Input type="email" name="email" required placeholder="Email" class="max-w-xs" />
 						<Button type="submit">Create</Button>
 					</form>
 				</div>
@@ -66,7 +66,7 @@
 							<span>{user.email}</span>
 							<AlertDialog.Root>
 								<AlertDialog.Trigger>❌</AlertDialog.Trigger>
-								<AlertDialog.Content>
+								<AlertDialog.Content class="max-w-xs">
 									<AlertDialog.Header>
 										<AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
 										<AlertDialog.Description>
@@ -94,7 +94,7 @@
 											}}
 										>
 											<input type="hidden" name="id" value={user.id} />
-											<AlertDialog.Action type="submit">Continue</AlertDialog.Action>
+											<AlertDialog.Action type="submit" class="w-full">Continue</AlertDialog.Action>
 										</form>
 									</AlertDialog.Footer>
 								</AlertDialog.Content>
