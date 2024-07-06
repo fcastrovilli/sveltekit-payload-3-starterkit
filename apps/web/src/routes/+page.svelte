@@ -4,7 +4,7 @@
 	let users = $derived(data.users);
 
 	// Inspect = "console.log"
-	// $inspect(users);
+	$inspect(users);
 
 	// Enhance forms
 	import { enhance } from '$app/forms';
@@ -45,9 +45,11 @@
 								}
 							};
 						}}
-						class="flex flex-row gap-2 py-2"
+						class="flex flex-col gap-2 py-2"
 					>
-						<Input type="email" name="email" required placeholder="Email" class="max-w-xs" />
+						<Input type="text" name="username" required placeholder="Username" />
+						<Input type="email" name="email" required placeholder="Email" />
+						<Input type="password" name="password" required placeholder="Password" />
 						<Button type="submit">Create</Button>
 					</form>
 				</div>
@@ -61,9 +63,12 @@
 						<span>Delete</span>
 					</div>
 					{#each users.docs as user}
-						<div class="flex flex-row items-center justify-between gap-2 px-1">
+						<div class="my-2 flex flex-row items-center justify-between px-1">
 							<span class="font-semibold">{user.id}</span>
-							<span>{user.email}</span>
+							<div class="flex flex-col items-center justify-center">
+								<span>{user.email}</span>
+								<span class="text-muted-foreground">{user.username}</span>
+							</div>
 							<AlertDialog.Root>
 								<AlertDialog.Trigger>❌</AlertDialog.Trigger>
 								<AlertDialog.Content class="max-w-xs">
