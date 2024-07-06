@@ -6,9 +6,9 @@
     "db:down": "docker compose -f docker-compose.db.yml down",
     "prod": "pnpm run sync-config && docker compose -f docker-compose.prod.yml up --build",
     "down": "docker compose -f docker-compose.prod.yml down",
-    "build": "pnpm run sync-config && turbo build",
+    "build": "pnpm run sync-config && turbo build --filter=cms --filter=web",
     "payload": "cd apps/cms && pnpm payload",
-    "dev": "pnpm run sync-config && turbo dev",
+    "dev": "pnpm run sync-config && turbo dev --filter=cms --filter=web",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "sync-config": "node scripts/watcher.js"

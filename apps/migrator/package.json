@@ -1,0 +1,16 @@
+{
+  "name": "migrator",
+  "version": "1.0.0",
+  "scripts": {
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "payload": "beta",
+    "@payloadcms/db-postgres": "beta",
+    "typescript": "^5.5.3"
+  }
+}
