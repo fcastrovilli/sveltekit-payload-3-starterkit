@@ -99,9 +99,15 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      mode-watcher:
+        specifier: ^0.3.1
+        version: 0.3.1(svelte@5.0.0-next.175)
       payload:
         specifier: beta
         version: 3.0.0-beta.58(@swc/core@1.6.7(@swc/helpers@0.5.11))(@swc/types@0.1.9)(graphql@16.9.0)(typescript@5.5.3)
+      svelte-sonner:
+        specifier: ^0.3.25
+        version: 0.3.25(svelte@5.0.0-next.175)
       tailwind-merge:
         specifier: ^2.3.0
         version: 2.3.0
@@ -3713,6 +3719,11 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  mode-watcher@0.3.1:
+    resolution: {integrity: sha512-inghSVSXpEENV0SHM98+AvjDmTOjh9EJIrJXMScK42GNkDm5QJL7a/nZQ8M8i8RK7loFHqsQKBKdlXfw5e5C4w==}
+    peerDependencies:
+      svelte: ^4.0.0 || ^5.0.0-next.1
+
   monaco-editor@0.38.0:
     resolution: {integrity: sha512-11Fkh6yzEmwx7O0YoLxeae0qEGFwmyPRlVxpg7oF9czOOCB/iCjdJrG5I67da5WiXK3YJCxoz9TJFE8Tfq/v9A==}
 
@@ -4691,6 +4702,11 @@ packages:
         optional: true
       typescript:
         optional: true
+
+  svelte-sonner@0.3.25:
+    resolution: {integrity: sha512-jYAHqDc1fBAotI+9g9SW2Pc6sKJ8oVl7aXB/EhQsxiVADAZ9AX4w7dxDI1oyskD6pG8mhYIKXi+5WqFmCRqFyw==}
+    peerDependencies:
+      svelte: ^3.0.0 || ^4.0.0 || ^5.0.0-next.1
 
   svelte@5.0.0-next.175:
     resolution: {integrity: sha512-fWMI0O3PiKFWvTohAEJRkd6RymR3uo7PO8GrNfyx57KDvmmK1KYRzAdHjx+RsKl8oZhfWeJHiot6iebgY8lJng==}
@@ -9409,6 +9425,10 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
+  mode-watcher@0.3.1(svelte@5.0.0-next.175):
+    dependencies:
+      svelte: 5.0.0-next.175
+
   monaco-editor@0.38.0: {}
 
   mri@1.2.0: {}
@@ -10417,6 +10437,10 @@ snapshots:
       postcss-load-config: 4.0.2(postcss@8.4.39)
       sass: 1.77.4
       typescript: 5.5.3
+
+  svelte-sonner@0.3.25(svelte@5.0.0-next.175):
+    dependencies:
+      svelte: 5.0.0-next.175
 
   svelte@5.0.0-next.175:
     dependencies:
