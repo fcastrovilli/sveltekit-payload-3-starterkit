@@ -5,18 +5,11 @@ WORKDIR /app
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
-RUN apk update
-RUN apk add --no-cache libc6-compat
 
-COPY ./apps/cms/package.json ./package.json
+COPY ./apps/migrator/package.json ./package.json
+COPY ./apps/migrator/tsconfig.json ./tsconfig.json
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --no-optional
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install typescript
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod
 
-# COPY ./apps/cms/next.config.mjs ./next.config.mjs
-COPY ./apps/cms/tsconfig.json ./tsconfig.json
 COPY ./apps/cms/src/config ./src/config
 COPY ./apps/cms/src/migrations ./src/migrations
-
-
-
